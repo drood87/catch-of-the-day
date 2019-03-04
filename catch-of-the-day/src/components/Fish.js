@@ -1,14 +1,17 @@
 import React from 'react';
 import { formatPrice } from '../helpers';
+// const image = this.props.details.image;
+// const name = this.props.details.name;
+// better use destructuring
 
 class Fish extends React.Component {
+  handleClick = () => {
+    this.props.addToOrder(this.props.index);
+  };
+
   render() {
-    // const image = this.props.details.image;
-    // const name = this.props.details.name;
-    // better use destructuring
-
     const { image, name, price, desc, status } = this.props.details;
-
+    const isAvailable = status === 'available';
     return (
       <li className="menu-fish">
         <img src={image} alt={name} />
@@ -17,7 +20,9 @@ class Fish extends React.Component {
           <span className="price">{formatPrice(price)}</span>
         </h3>
         <p>{desc}</p>
-        <button>Add to Card</button>
+        <button disabled={!isAvailable} onClick={this.handleClick}>
+          {isAvailable ? 'Add to Order' : `Sold out!`}
+        </button>
       </li>
     );
   }
