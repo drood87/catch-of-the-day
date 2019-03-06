@@ -19,10 +19,12 @@ class Order extends React.Component {
 
     return (
       <li key={key}>
-        {count} lbs {fish.name}
-        {formatPrice(count * fish.price)}
-        <button onClick={() => this.props.deleteFish(this.props.key)}>
-          Remove Fish
+        <span>
+          {count} lbs {fish.name}
+        </span>
+        <span>{formatPrice(count * fish.price)} </span>
+        <button onClick={() => this.props.deleteFishFromOrder(key)}>
+          &times;
         </button>
       </li>
     );
@@ -30,6 +32,7 @@ class Order extends React.Component {
 
   render() {
     const orderIds = Object.keys(this.props.order);
+
     const total = orderIds.reduce((prevTotal, key) => {
       const fish = this.props.fishes[key];
       const count = this.props.order[key];
@@ -40,6 +43,7 @@ class Order extends React.Component {
       }
       return prevTotal;
     }, 0);
+
     return (
       <div className="order-wrap">
         <h2>Order</h2>
