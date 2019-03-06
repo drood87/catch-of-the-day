@@ -1,6 +1,8 @@
 import Rebase from 're-base';
 import firebase from 'firebase';
 
+//add to gitignore
+
 const firebaseApp = firebase.initializeApp({
   apiKey: 'AIzaSyC82lG3PAifIs0MBCsw3oWFYpEOC1D0RKw',
   authDomain: 'catch-of-the-day-dan-bernstein.firebaseapp.com',
