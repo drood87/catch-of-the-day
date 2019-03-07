@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // stateless functional component if we just have to pass some props into it. Better for performance and saves us some code.
 const Header = props => (
@@ -16,6 +17,10 @@ const Header = props => (
     </h3>
   </header>
 );
+
+Header.propTypes = {
+  tagline: PropTypes.string.isRequired
+};
 
 // class Header extends React.Component {
 //   render() {

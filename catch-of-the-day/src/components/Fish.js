@@ -1,10 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { formatPrice } from '../helpers';
+
 // const image = this.props.details.image;
 // const name = this.props.details.name;
 // better use destructuring
 
 class Fish extends React.Component {
+  static propTypes = {
+    details: PropTypes.shape({
+      image: PropTypes.string,
+      name: PropTypes.string,
+      status: PropTypes.string,
+      desc: PropTypes.string,
+      price: PropTypes.number
+    }),
+    addToOrder: PropTypes.func
+  };
   handleClick = () => {
     this.props.addToOrder(this.props.index);
   };
